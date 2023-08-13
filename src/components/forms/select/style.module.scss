@@ -1,0 +1,20 @@
+.containerSelect {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  margin-bottom: 40px;
+  select {
+    background-color: var(--color-grey-2);
+    color: var(--color-grey-0);
+    height: 48px;
+  }
+
+  label {
+    font-size: 0.75rem;
+  }
+}
+
+.msg {
+  font-size: 12px;
+}

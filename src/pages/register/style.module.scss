@@ -1,0 +1,25 @@
+.containerFlex {
+  display: flex;
+  flex-direction: column;
+
+  padding: 1rem;
+  gap: 50px;
+
+  background-color: var(--color-grey-3);
+
+  .text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+
+    h1 {
+      font-size: 0.875rem;
+    }
+
+    span {
+      color: var(--color-grey-1);
+      font-size: 0.625rem;
+    }
+  }
+}

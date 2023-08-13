@@ -1,0 +1,35 @@
+%buttonDefaults {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  color: var(--grey-0);
+  font-size: 1rem;
+
+  transition: 0.4s;
+}
+
+.btn {
+  @extend %buttonDefaults;
+  background-color: var(--color-primary);
+
+  width: 100%;
+  height: 48px;
+
+  border-radius: 4px;
+
+  &.register {
+    background-color: var(--color-grey-1);
+    margin-bottom: 40px;
+  }
+
+  &.close {
+    background-color: var(--color-grey-3);
+    width: 70px;
+    height: 32px;
+
+    font-size: 12px;
+    border-radius: 4;
+  }
+}

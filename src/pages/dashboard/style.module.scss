@@ -1,0 +1,30 @@
+.textUser {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 50px;
+  gap: 20px;
+
+  p {
+    font-size: 16px;
+  }
+
+  span {
+    color: var(--color-grey-1);
+    font-size: 0.75rem;
+  }
+}
+
+.textInfo {
+  display: flex;
+  flex-direction: column;
+
+  p {
+    font-size: 1rem;
+  }
+
+  span {
+    color: var(--color-grey-1);
+    font-size: 0.75rem;
+  }
+}

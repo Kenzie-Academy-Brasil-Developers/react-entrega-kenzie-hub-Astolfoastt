@@ -1,0 +1,15 @@
+.containerFlex {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &.centered {
+    justify-content: center;
+  }
+
+  img {
+    width: 181px;
+  }
+}

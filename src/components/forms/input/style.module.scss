@@ -1,0 +1,29 @@
+.containerInput {
+  display: flex;
+  flex-direction: column;
+  input {
+    margin-top: 10px;
+    width: 100%;
+    font-size: 0.7rem;
+
+    padding: 0.5rem;
+
+    color: var(--color-grey-0);
+    background-color: var(--color-grey-2);
+    height: 48px;
+
+    margin-bottom: 10px;
+
+    &:disabled {
+      opacity: 0.5;
+    }
+  }
+  label {
+    font-size: 0.75rem;
+  }
+}
+
+.msg {
+  font-size: 12px;
+  margin-bottom: 30px;
+}
