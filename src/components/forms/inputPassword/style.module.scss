@@ -1,32 +1,32 @@
-.containerInput{
-    display: flex;
-    flex-direction: column;
-    input{
-      margin-top: 10px; 
-      width: 100%;
-      font-size: 0.7rem;
+.containerInput {
+  display: flex;
+  flex-direction: column;
 
-      padding: 0.5rem;
-        
-      color: var(--color-grey-0);
-      background-color: var(--color-grey-2);
+  input {
+    margin-top: 10px;
+    width: 100%;
+    font-size: 0.7rem;
 
-      height: 48px;
+    padding: 0.5rem;
 
-      margin-bottom: 10px;
-    
-        &:disabled {
-            opacity: 0.5;
-        }
+    color: var(--color-grey-0);
+    background-color: var(--color-grey-2);
 
+    height: 48px;
+
+    border-radius: 4px;
+    margin-bottom: 10px;
+
+    &:disabled {
+      opacity: 0.5;
     }
-    label{
-        font-size: .75rem;
-        
-    }
+  }
+  label {
+    font-size: 0.75rem;
+  }
 }
 
 .msg {
-    font-size: 12px;
-    margin-bottom: 30px;
+  font-size: 12px;
+  margin-bottom: 30px;
 }

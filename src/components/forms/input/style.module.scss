@@ -1,6 +1,7 @@
 .containerInput {
   display: flex;
   flex-direction: column;
+
   input {
     margin-top: 10px;
     width: 100%;
@@ -12,6 +13,7 @@
     background-color: var(--color-grey-2);
     height: 48px;
 
+    border-radius: 4px;
     margin-bottom: 10px;
 
     &:disabled {

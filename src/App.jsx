@@ -1,24 +1,17 @@
-import { useState } from "react";
 import { DefaultTemplate } from "./components/defaultTemplate";
 import { RoutesMain } from "./routes";
-import "./styles/index.scss";
-import { useNavigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
+import { useContext } from "react";
+import { UserContext } from "./providers/userContext";
+import { LoadingIcon } from "./components/loadingPage";
+import "./styles/index.scss";
 
 const App = () => {
-  const [user, setUser] = useState(null);
-
-  const navigate = useNavigate();
-
-  const logoutUser = () => {
-    setUser(null);
-    navigate("/");
-    localStorage.clear("@Token:user");
-  };
+  const { loading } = useContext(UserContext);
   return (
     <>
-      <DefaultTemplate logoutUser={logoutUser}>
-        <RoutesMain user={user} setUser={setUser} />
+      <DefaultTemplate>
+        {loading ? <LoadingIcon /> : <RoutesMain />}
         <ToastContainer />
       </DefaultTemplate>
     </>

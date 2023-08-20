@@ -1,19 +1,19 @@
-import { useState } from "react";
-import { useForm } from "react-hook-form";
+import { useContext, useState } from "react";
 import { Input } from "../input";
 import { InputPassword } from "../inputPassword";
 import { SelectModule } from "../select/index.jsx";
-import { zodResolver } from "@hookform/resolvers/zod";
+import { UserContext } from "../../../providers/userContext";
 import { registerFormSchema } from "./registerFormSchema";
-import { kenzieHubApi } from "../../services/api";
-import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 export const RegisterForm = () => {
+  const [loading, setLoading] = useState(false);
   const [selectedModule, setSelectedModule] = useState({
     value: "Primeiro módulo",
   });
-  const [loading, setLoading] = useState(false);
+  const { userRegister } = useContext(UserContext);
+
   const {
     register,
     handleSubmit,
@@ -22,23 +22,8 @@ export const RegisterForm = () => {
     resolver: zodResolver(registerFormSchema),
   });
 
-  const navigate = useNavigate();
-
-  const userRegister = async (formData) => {
-    try {
-      setLoading(true);
-      await kenzieHubApi.post("/users", formData);
-      toast.success("Usuário cadastrado com sucesso!");
-      navigate("/");
-    } catch (error) {
-      toast.error("Usuário já cadastrado");
-    } finally {
-      setLoading(false);
-    }
-  };
-
   const onSubmit = (formData) => {
-    userRegister(formData);
+    userRegister(formData, setLoading);
   };
 
   return (

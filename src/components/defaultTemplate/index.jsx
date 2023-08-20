@@ -1,10 +1,9 @@
 import { HeaderPage } from "../header/index.jsx";
 
-
-export const DefaultTemplate = ({ children, logoutUser }) => {
+export const DefaultTemplate = ({ children }) => {
   return (
     <>
-       <HeaderPage logoutUser={logoutUser}/> 
+      <HeaderPage />
       {children}
     </>
   );

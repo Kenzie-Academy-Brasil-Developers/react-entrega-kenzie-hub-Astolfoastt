@@ -1,16 +1,19 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Input } from "../input";
-import { useNavigate } from "react-router-dom";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { loginFormSchema } from "./loginFormSchema";
-import { kenzieHubApi } from "../../services/api";
 import { InputPassword } from "../inputPassword";
+import { UserContext } from "../../../providers/userContext";
+import { Link } from "react-router-dom";
 import style from "./style.module.scss";
-import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-export const LoginForm = ({ setUser }) => {
+
+export const LoginForm = () => {
+  const [loading, setLoading] = useState(false);
+  const { userLogin } = useContext(UserContext);
+
   const {
     register,
     handleSubmit,
@@ -18,31 +21,9 @@ export const LoginForm = ({ setUser }) => {
   } = useForm({
     resolver: zodResolver(loginFormSchema),
   });
-  const [loading, setLoading] = useState(false);
-
-  const navigate = useNavigate();
-
-  const userLogin = async (formData) => {
-    try {
-      setLoading(true);
-      const { data } = await kenzieHubApi.post("/sessions", formData);
-      setUser(data.user);
-      localStorage.setItem("@Token:User", data.token);
-      toast.success("Usuário logado com sucesso!");
-      navigate("/dashboard");
-    } catch (error) {
-      toast.error("Insira corretamente os dados para prosseguir");
-    } finally {
-      setLoading(false);
-    }
-  };
 
   const onSubmit = (formData) => {
-    userLogin(formData);
-  };
-
-  const openRegister = () => {
-    navigate("/register");
+    userLogin(formData, setLoading);
   };
 
   return (
@@ -69,9 +50,7 @@ export const LoginForm = ({ setUser }) => {
           {loading ? "Entrando..." : "Entrar"}
         </button>
         <p>Ainda não possui uma conta?</p>
-        <button className="btn register" onClick={openRegister}>
-          Cadastre-se
-        </button>
+        <Link className="btn register" to="/register"> Cadastre-se </Link>
       </div>
     </form>
   );

@@ -1,27 +1,26 @@
-import { useNavigate, useLocation } from "react-router-dom";
+import React, { useContext } from "react";
+import { useLocation, Link } from "react-router-dom";
 import Logo from "../../assets/Logo.svg";
 import style from "./style.module.scss";
+import { UserContext } from "../../providers/userContext";
 
-export const HeaderPage = ({ logoutUser }) => {
-  const navigate = useNavigate();
+export const HeaderPage = () => {
   const location = useLocation();
-
-  const openLogin = () => {
-    navigate("/");
-  };
+  const { logoutUser } = useContext(UserContext);
 
   return (
-    <header className="container header">
+    <header className="container dashboard">
       <div
         className={`${style.containerFlex} ${
-          location.pathname === "/" ? style.centered : ""
+          (location.pathname === "/" || location.pathname === "/register") &&
+          style.centered
         }`}
       >
         <img src={Logo} alt="Logo Kenzie Hub" />
         {location.pathname === "/register" && (
-          <button className="btn close" onClick={openLogin}>
+          <Link className="btn close" to="/">
             Voltar
-          </button>
+          </Link>
         )}
         {location.pathname === "/dashboard" && (
           <button className="btn close" onClick={logoutUser}>

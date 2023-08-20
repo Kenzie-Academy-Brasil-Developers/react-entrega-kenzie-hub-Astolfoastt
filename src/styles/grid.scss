@@ -3,4 +3,16 @@
   max-width: 420px;
   margin: 0 auto;
   padding: 1rem;
+
+  &.dashboard {
+    width: 100%;
+    max-width: 1300px;
+  }
+}
+
+.containerDashboard {
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 1rem;
 }
