@@ -1,7 +1,7 @@
 import { LoginForm } from "../../components/forms/loginForm";
 import style from "./style.module.scss";
 
-export const LoginPage = ({}) => {
+export const LoginPage = () => {
   return (
     <main className="container">
       <div className={style.containerFlex}>

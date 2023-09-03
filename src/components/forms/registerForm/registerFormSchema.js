@@ -2,9 +2,7 @@ import { z } from "zod";
 
 export const registerFormSchema = z
   .object({
-    name: z
-      .string()
-      .nonempty("Digite um nome para prosseguir"),
+    name: z.string().nonempty("Digite um nome para prosseguir"),
     email: z
       .string()
       .nonempty("Digite um email para prosseguir")
@@ -20,9 +18,7 @@ export const registerFormSchema = z
         /(?=.*[*?[#?!@$%^&*-])/,
         "É necessário que contenha pelo menos um caracter especial"
       ),
-    confirmPassword: z
-      .string()
-      .nonempty("Confirme sua senha para prosseguir"),
+    confirmPassword: z.string().nonempty("Confirme sua senha para prosseguir"),
     bio: z.string().nonempty("Por favor, preencha o campo obrigatório"),
     contact: z.string().nonempty("Por favor, preencha o campo obrigatório"),
     course_module: z.string().nonempty("Por favor, selecione um módulo"),
